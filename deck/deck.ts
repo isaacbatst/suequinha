@@ -1,54 +1,54 @@
-import { numbersDetails } from "./data";
+import { numbersDetails } from './data'
 
-const roles = ['Paus', 'Copas', 'Espadas', 'Ouro'] as const;
+const suits = ['Paus', 'Copas', 'Espadas', 'Ouro'] as const
 
-type role = typeof roles[number];
+export type suit = typeof suits[number];
 
 export interface Card {
   number: number,
   numberName: string,
-  role: role,
+  suit: suit,
   rule: string,
 }
 
-const ROLE_SIZE = 13;
+const SUIT_SIZE = 13
 
-function createRoleCards(role: role): Card[] {
-  return Array.from({ length: ROLE_SIZE }, (_, index) => ({
+function createSuitCards (suit: suit): Card[] {
+  return Array.from({ length: SUIT_SIZE }, (_, index) => ({
     number: index,
-    numberName: numbersDetails[index+1].name,
-    rule: numbersDetails[index+1].rule,
-    role: role,
+    numberName: numbersDetails[index + 1].name,
+    rule: numbersDetails[index + 1].rule,
+    suit: suit
   }))
 }
 
-function createDeck(){
-  return roles.reduce<Card[]>((deck, role) => [
+function createDeck () {
+  return suits.reduce<Card[]>((deck, suit) => [
     ...deck,
-    ...createRoleCards(role)
+    ...createSuitCards(suit)
   ], [])
 }
 
-function createShuffledDeck(){
-  const deck = createDeck();
-
-  return shuffle(deck);
-}
-
-function shuffle<T>(array: T[]): T[] {
+function shuffle<T> (array: T[]): T[] {
   let currentIndex = array.length
-  let randomIndex;
+  let randomIndex
 
-  while (0 !== currentIndex) {
-    randomIndex = Math.floor(Math.random() * currentIndex);
+  while (currentIndex !== 0) {
+    randomIndex = Math.floor(Math.random() * currentIndex)
     currentIndex--;
 
     [array[currentIndex], array[randomIndex]] = [
       array[randomIndex], array[currentIndex]
-    ];
+    ]
   }
 
-  return array;
+  return array
 }
 
-export default createShuffledDeck;
+function createShuffledDeck () {
+  const deck = createDeck()
+
+  return shuffle(deck)
+}
+
+export default createShuffledDeck
