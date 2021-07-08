@@ -3,58 +3,57 @@ interface NumberDetails {
   rule: string
 }
 
-
 export const numbersDetails: Record<number, NumberDetails> = {
   1: {
-    name: 'Ás',
+    name: 'A',
     rule: 'Escolha uma pessoa para beber'
   },
   2: {
-    name: 'Dois',
+    name: '2',
     rule: 'Escolha duas pessoas para beber'
   },
   3: {
-    name: 'Três',
+    name: '3',
     rule: 'Escolha três pessoas para beber'
   },
   4: {
-    name: 'Quatro',
+    name: '4',
     rule: 'Eu nunca'
   },
   5: {
-    name: 'Cinco',
+    name: '5',
     rule: 'C/S Composto'
   },
   6: {
-    name: 'Seis',
+    name: '6',
     rule: 'Barquinho'
   },
   7: {
-    name: 'Sete',
+    name: '7',
     rule: 'Pi'
   },
   8: {
-    name: 'Oito',
+    name: '8',
     rule: 'Escolha uma palavra proibida'
   },
   9: {
-    name: 'Nove',
+    name: '9',
     rule: 'Dedo na mesa'
   },
   10: {
-    name: 'Dez',
+    name: '10',
     rule: 'Crie uma regra'
   },
   11: {
-    name: 'Valete',
+    name: 'J',
     rule: 'Homens bebem'
   },
   12: {
-    name: 'Rainha',
+    name: 'Q',
     rule: 'Mulheres bebem'
   },
   13: {
-    name: 'Rei',
+    name: 'K',
     rule: 'Todos bebem'
-  },
+  }
 }
