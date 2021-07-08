@@ -35,7 +35,7 @@ function createShuffledDeck(){
   return shuffle(deck);
 }
 
-export function shuffle<T>(array: T[]): T[] {
+function shuffle<T>(array: T[]): T[] {
   let currentIndex = array.length
   let randomIndex;
 
