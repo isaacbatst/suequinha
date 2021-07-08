@@ -1,12 +1,15 @@
 import { cloneDeep } from 'lodash'
 import React, { useEffect, useState } from 'react'
-import { StyleSheet, TouchableOpacity, View } from 'react-native'
+import { StyleSheet, View } from 'react-native'
+import Card from '../components/Card'
 import FontText from '../components/TextStyled'
 import { blue, gray } from '../constants/colors'
-import createDeck, { Card } from '../deck/deck'
+import { shadow } from '../constants/shadow'
+import createDeck, { Card as CardType } from '../deck/deck'
 
 function Home () {
-  const [deck, setDeck] = useState<Card[]>([])
+  const [deck, setDeck] = useState<CardType[]>([])
+  const [topCard] = deck
 
   useEffect(() => {
     const deck = createDeck()
@@ -25,31 +28,19 @@ function Home () {
       return createDeck()
     })
   }
+
   return (
       <View style={styles.container}>
         { deck.length > 0 &&
           <>
             <View style={styles.ruleContainer}>
-              <FontText style={styles.rule}>{deck[0].rule}</FontText>
+              <FontText style={styles.rule}>{topCard.rule}</FontText>
             </View>
-            <TouchableOpacity style={styles.card} onPress={handleCardTouch}>
-              <FontText style={{ color: 'black' }}>{deck[0].numberName} de {deck[0].role}</FontText>
-            </TouchableOpacity>
+            <Card onPress={handleCardTouch} card={topCard}/>
           </>
         }
       </View>
   )
-}
-
-const shadow = {
-  shadowColor: '#000',
-  shadowOffset: {
-    width: 0,
-    height: 4
-  },
-  shadowOpacity: 0.30,
-  shadowRadius: 4.65,
-  elevation: 1
 }
 
 const styles = StyleSheet.create({
@@ -67,13 +58,6 @@ const styles = StyleSheet.create({
     color: 'white',
     textAlign: 'center',
     fontSize: 22,
-    ...shadow
-  },
-  card: {
-    flex: 1,
-    backgroundColor: 'white',
-    padding: 15,
-    justifyContent: 'center',
     ...shadow
   }
 })
