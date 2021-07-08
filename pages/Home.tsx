@@ -2,7 +2,7 @@ import { cloneDeep } from 'lodash'
 import React, { useEffect, useState } from 'react'
 import { StyleSheet, View } from 'react-native'
 import Card from '../components/Card'
-import FontText from '../components/TextStyled'
+import TextStyled from '../components/TextStyled'
 import { blue, gray } from '../constants/colors'
 import { shadow } from '../constants/shadow'
 import createDeck, { Card as CardType } from '../deck/deck'
@@ -34,7 +34,7 @@ function Home () {
         { deck.length > 0 &&
           <>
             <View style={styles.ruleContainer}>
-              <FontText style={styles.rule}>{topCard.rule}</FontText>
+              <TextStyled style={styles.rule}>{topCard.rule}</TextStyled>
             </View>
             <Card onPress={handleCardTouch} card={topCard}/>
           </>

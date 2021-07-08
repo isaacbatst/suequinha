@@ -3,7 +3,6 @@ import club from './assets/club.svg'
 import diamond from './assets/diamond.svg'
 import heart from './assets/heart.svg'
 import spade from './assets/spade.svg'
-import { ImageSourcePropType } from 'react-native'
 
 interface NumberDetails {
   name: string,
