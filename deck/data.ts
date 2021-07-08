@@ -1,3 +1,10 @@
+import { suit } from './deck'
+import club from './assets/club.svg'
+import diamond from './assets/diamond.svg'
+import heart from './assets/heart.svg'
+import spade from './assets/spade.svg'
+import { ImageSourcePropType } from 'react-native'
+
 interface NumberDetails {
   name: string,
   rule: string
@@ -56,4 +63,11 @@ export const numbersDetails: Record<number, NumberDetails> = {
     name: 'K',
     rule: 'Todos bebem'
   }
+}
+
+export const suitsImages: Record<suit, number> = {
+  Paus: club,
+  Ouro: diamond,
+  Copas: heart,
+  Espadas: spade
 }
